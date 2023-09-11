@@ -349,6 +349,8 @@ function submitted(e) {
   }
 }
 
+
+
 // The following code is for gsap Plugin.
 gsap.registerPlugin(ScrollTrigger);
 let animation = gsap.timeline();
