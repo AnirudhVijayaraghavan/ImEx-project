@@ -258,7 +258,10 @@ function submitted(e) {
     // The following adds the form details to localStorage.
     addToLocalStorage()
     // The following function sends the e-mail.
-    alert(localStorage.getItem("trackingCode"));
+    modal.style.display = "block";
+    modal.innerText =  "Your shipment, for the tracking code " +localStorage.getItem("trackingCode")+ " is currently : Out for delivery."
+    modal.style.color = "white"
+
     // sendemailtome();
     // The following function resets the form.
     resetButton();
@@ -287,9 +290,26 @@ gsap.from(".formsection", {
   x: "100%",
   duration: 4,
   ease: "bounce.out",
-  y: - 500,
+  y: 500,
   scrollTrigger: ".formsection"
 });
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
 
