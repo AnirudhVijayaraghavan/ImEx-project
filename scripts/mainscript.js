@@ -106,7 +106,6 @@ function openNav() {
 }
 
 function closeNav() {
-  console.log(state);
   state = "closed";
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
