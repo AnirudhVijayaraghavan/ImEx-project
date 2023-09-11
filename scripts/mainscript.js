@@ -364,6 +364,12 @@ gsap.from("#h2", {
   duration: 3,
   scrollTrigger: "#h2"
 });
+gsap.from(".fixed-bg-edu-img", {
+  x: "-100%",
+  duration: 3,
+  y: - 500,
+  scrollTrigger: ".fixed-bg-edu-img"
+});
 
 
 gsap.from(".formsection", {
