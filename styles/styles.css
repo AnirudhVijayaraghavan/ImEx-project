@@ -689,8 +689,14 @@ back to top button. */
 .back-to-top-icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: red;
+  color: navy;
   transform: rotate(-0.25turn);
+}
+.back-to-top-icon-index {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: navy;
+  transform: rotate();
 }
 
 .progress-bar {

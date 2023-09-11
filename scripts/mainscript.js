@@ -10,7 +10,7 @@ const scrollContainer = () => {
 };
 
 const goToHomePage = () => {
-  window.location.href = "main.html";
+  window.location.href = "index.html";
 };
 
 document.addEventListener("scroll", () => {
@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // The following code is for the navbar collapse.
 let state = "closed";
 function openNav() {
+  console.log(state);
   state = "open";
   document.getElementById("mySidebar").style.width = "20%";
   document.getElementById("main").style.marginLeft = "20%";
@@ -105,6 +106,7 @@ function openNav() {
 }
 
 function closeNav() {
+  console.log(state);
   state = "closed";
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
@@ -427,12 +429,5 @@ gsap.from(".formsection", {
   scrollTrigger: ".formsection"
 });
 
-gsap.from(".formsection", {
-  x: "100%",
-  duration: 4,
-  ease: "bounce.out",
-  y: - 500,
-  scrollTrigger: ".formsection"
-});
 
 
