@@ -545,6 +545,7 @@ figcaption {
     transition: transform .2s ease-in-out;
     padding: 20px;
   }
+
   .mainprofilephotobottomright {
     display: none;
     margin-left: 5%;
@@ -692,6 +693,7 @@ back to top button. */
   color: navy;
   transform: rotate(-0.25turn);
 }
+
 .back-to-top-icon-index {
   width: 1.5rem;
   height: 1.5rem;
@@ -806,6 +808,18 @@ footer {
   position: absolute;
 }
 
+.footerspanlinks a {
+  color: #006FB2;
+  font-family: 'Play', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  padding: 5%;
+}
+
+.footerspanlinks a:hover {
+  color: #fff;
+}
+
 /* The following is to keep the background image of various sections fixed using background attachment property. */
 .fixed-bg-we {
   margin: 0 0;
@@ -850,7 +864,7 @@ footer {
   background-size: cover;
   padding-bottom: 30px;
   color: white;
-  
+
   text-align: left;
 }
 
@@ -864,7 +878,7 @@ footer {
   background-size: cover;
   padding-bottom: 30px;
   color: white;
-  
+
   text-align: left;
 }
 
@@ -1163,8 +1177,7 @@ div.item {
   --r: calc(var(--position) - var(--offset));
   --abs: max(calc(var(--r) * -1), var(--r));
   transition: all 0.25s linear;
-  transform: rotateY(calc(-10deg * var(--r)))
-    translateX(calc(-300px * var(--r)));
+  transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
   z-index: calc((var(--position) - var(--abs)));
 }
 
@@ -1172,18 +1185,22 @@ div.item:nth-of-type(1) {
   --offset: 1;
   background-color: #90f1ef;
 }
+
 div.item:nth-of-type(2) {
   --offset: 2;
   background-color: #ff70a6;
 }
+
 div.item:nth-of-type(3) {
   --offset: 3;
   background-color: #ff9770;
 }
+
 div.item:nth-of-type(4) {
   --offset: 4;
   background-color: #ffd670;
 }
+
 div.item:nth-of-type(5) {
   --offset: 5;
   background-color: #e9ff70;
@@ -1193,7 +1210,8 @@ input:nth-of-type(1) {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
-input:nth-of-type(1):checked ~ main#carousel {
+
+input:nth-of-type(1):checked~main#carousel {
   --position: 1;
 }
 
@@ -1201,7 +1219,8 @@ input:nth-of-type(2) {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
 }
-input:nth-of-type(2):checked ~ main#carousel {
+
+input:nth-of-type(2):checked~main#carousel {
   --position: 2;
 }
 
@@ -1209,7 +1228,8 @@ input:nth-of-type(3) {
   grid-column: 4 /5;
   grid-row: 2 / 3;
 }
-input:nth-of-type(3):checked ~ main#carousel {
+
+input:nth-of-type(3):checked~main#carousel {
   --position: 3;
 }
 
@@ -1217,7 +1237,8 @@ input:nth-of-type(4) {
   grid-column: 5 / 6;
   grid-row: 2 / 3;
 }
-input:nth-of-type(4):checked ~ main#carousel {
+
+input:nth-of-type(4):checked~main#carousel {
   --position: 4;
 }
 
@@ -1225,7 +1246,7 @@ input:nth-of-type(5) {
   grid-column: 6 / 7;
   grid-row: 2 / 3;
 }
-input:nth-of-type(5):checked ~ main#carousel {
+
+input:nth-of-type(5):checked~main#carousel {
   --position: 5;
 }
-
