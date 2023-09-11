@@ -669,7 +669,7 @@ back to top button. */
 .back-to-top {
   position: fixed;
   right: .3rem;
-  bottom: 6rem;
+  bottom: 10rem;
   border-radius: 100%;
   background: white;
   padding: 0.5rem;
@@ -817,6 +817,7 @@ footer {
 }
 
 .footerspanlinks a:hover {
+  animation: fadeInAnimation ease 2s;
   color: #fff;
 }
 
