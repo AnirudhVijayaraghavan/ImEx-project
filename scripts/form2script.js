@@ -144,22 +144,18 @@ myFunction(x)
 x.addListener(myFunction)
 
 // 
-var form = document.getElementById("myForm"); 
+var form = document.getElementById("myForm2");
 
 form.addEventListener("submit", submitted);
 //initializing valid variables for switch case.
 var validFirstName = false;
 var validLastName = false;
-var validEmail = false;
-var validPhone = false;
-var validZip = false;
+var validTracking = false;
 
 //regex checks variables
 var regExString = /^[a-zA-Z]+$/;
-var regExEmail = /([\w\.]+)@([\w\.]+)\.(\w+)/;
-var regExEmailNEU = /[a-z0-9]+@[a-zA-Z].[a-zA-Z]/;
-var regExPhone = /\d{10}$/;
-var regExZip = /(^\d{5}$)/;
+
+var regExTracking = /(^\d{12}$)/;
 
 var firstName = document.getElementById("firstName");
 firstName.addEventListener("input", validate);
@@ -167,15 +163,8 @@ firstName.addEventListener("input", validate);
 var lastName = document.getElementById("lastName");
 lastName.addEventListener("input", validate);
 
-var emailId = document.getElementById("emailId");
-emailId.addEventListener("input", validate);
-
-var phoneNumber = document.getElementById("phoneNumber");
-phoneNumber.addEventListener("input", validate);
-
-var zipcode = document.getElementById("zipcode");
-zipcode.addEventListener("input", validate);
-
+var trackingCode = document.getElementById("trackingCode");
+trackingCode.addEventListener("input", validate);
 
 function validate(e) {
   console.log("validate");
@@ -211,86 +200,25 @@ function validate(e) {
       }
       break;
 
-    case "emailId":
-      if (!value.trim().match(regExEmailNEU)) {
+    case "trackingCode":
+      if (!value.trim().match(regExTracking)) {
         document.getElementById(em).style.display = "block";
         this.style.border = "2px solid blue";
-        validEmail = false;
+        validTracking = false;
       }
       else {
         document.getElementById(em).style.display = "none";
         this.style.border = "";
-        validEmail = true;
+        validTracking = true;
       }
       break;
-
-    case "phoneNumber":
-      if (!value.trim().match(regExPhone)) {
-        document.getElementById(em).style.display = "block";
-        this.style.border = "2px solid blue";
-        validPhone = false;
-      }
-      else {
-        document.getElementById(em).style.display = "none";
-        this.style.border = "";
-        validPhone = true;
-      }
-      break;
-
-
-    case "zipcode":
-      if (!value.trim().match(regExZip)) {
-        document.getElementById(em).style.display = "block";
-        this.style.border = "2px solid blue";
-        validZip = false;
-      }
-      else {
-        document.getElementById(em).style.display = "none";
-        this.style.border = "";
-        validZip = true;
-      }
-      break;
-  }
-}
-
-
-//The following will be called in submit() function to return the value of source CBs
-//selected.
-function sourceCBValueSelected() {
-  var sourceCB = document.getElementsByName('source');
-  let arrayCB = [];
-  for (i = 0; i < sourceCB.length; i++) {
-    if (sourceCB[i].checked)
-      arrayCB.push(sourceCB[i].value);
-  }
-  return arrayCB;
-}
-//The following is to make sure only 1 CB needs be checked.
-function deRequireCb(cbcheck) {
-  cb = document.getElementsByClassName(cbcheck);
-
-  var atLeastOneChecked = false; //at least one cb is checked
-  for (i = 0; i < cb.length; i++) {
-    if (cb[i].checked === true) {
-      atLeastOneChecked = true;
-    }
-  }
-
-  if (atLeastOneChecked === true) {
-    for (i = 0; i < cb.length; i++) {
-      cb[i].required = false;
-    }
-  } else {
-    for (i = 0; i < cb.length; i++) {
-      cb[i].required = true;
-    }
   }
 }
 
 //The following is to reset the form, variables and localStorage.
 function resetButton() {
   console.log("resetButton() function called.")
-  document.getElementById("myForm").reset();
+  document.getElementById("myForm2").reset();
   console.log("Form reset.");
   localStorage.clear();
   console.log("Data removed from localStorage.");
@@ -303,19 +231,10 @@ function addToLocalStorage() {
   localStorage.setItem("firstName", firstName);
   var lastName = document.getElementById("lastName").value;
   localStorage.setItem("lastName", lastName);
-  var emailId = document.getElementById("emailId").value;
-  localStorage.setItem("emailId", emailId);
-  var phoneNumber = document.getElementById("phoneNumber").value;
-  localStorage.setItem("phoneNumber", phoneNumber);
-  var zipcode = document.getElementById("zipcode").value;
-  localStorage.setItem("zipcode", zipcode);
-  var source = sourceCBValueSelected();
-  localStorage.setItem("source", source);
-  var comments = document.getElementById("comments").value;
-  localStorage.setItem("comments", comments);
+  var trackingCode = document.getElementById("trackingCode").value;
+  localStorage.setItem("trackingCode", trackingCode);
   console.log("Data Saved to localStorage Successfully");
 }
-
 
 // EmailJS code.
 function sendemailtome() {
@@ -334,15 +253,15 @@ function sendemailtome() {
 function submitted(e) {
   e.preventDefault();
   console.log("submitted");
-  console.log(validFirstName + "|" + validLastName + "|" + validEmail + "|" + validPhone + "|" + validZip);
-  if (validFirstName && validLastName && validEmail && validPhone && validZip) {
+  console.log(validFirstName + "|" + validLastName + "|" + validTracking);
+  if (validFirstName && validLastName && validTracking) {
     // The following adds the form details to localStorage.
     addToLocalStorage()
     // The following function sends the e-mail.
-    sendemailtome();
+    alert(localStorage.getItem("trackingCode"));
+    // sendemailtome();
     // The following function resets the form.
     resetButton();
-
   }
   else {
     alert("Please enter all the details, as prompted.");
